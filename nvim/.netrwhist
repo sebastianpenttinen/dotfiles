@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/sebu'
+let g:netrw_dirhist_2='/home/sebu/git'
+let g:netrw_dirhist_3='/home/sebu/git/DailyCodingProblems'
+let g:netrw_dirhist_4='/home/sebu/git/DailyCodingProblems/Python'
+let g:netrw_dirhist_5='/home/sebu'
+let g:netrw_dirhist_6='/home/sebu/Downloads'
