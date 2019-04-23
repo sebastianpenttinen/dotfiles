@@ -204,8 +204,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec /home/sebu/Scripts/toggletouchpad.sh # toggle touchpad
@@ -234,4 +234,19 @@ gaps inner 10
 gaps outer 0
 smart_gaps on
 
+# Set pointer speed for mouse G300
 exec xinput --set-prop 9 285 -0.65
+
+# Enable Tapping for touchpad
+exec xinput --set-prop 10 276 1
+
+# Enable Natural Scrolling
+EXEC xinput --set-prop 10 284 1
+
+# Run bluetooth
+exec blueman-manager
+
+bindsym $mod+shift+o exec google-chrome
+bindsym $mod+shift+p exec code
+bindsym $mod+shift+i exec nautilus
+bindsym $mod+shift+u exec spotify  
