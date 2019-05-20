@@ -1,7 +1,7 @@
 [bar/top]
 enable-ipc = true
 bottom = false
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:DP-1}
 width = 100%
 height = 20
 dpi = 100
@@ -57,7 +57,7 @@ underline-size = 2
 underline-color = ${self.background}
 
 [bar/bottom]
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:DP-1}
 bottom = true
 width = 100%
 height = 20
