@@ -1,7 +1,7 @@
 [bar/top]
 enable-ipc = true
 bottom = false
-monitor = ${env:MONITOR:DP-1}
+monitor = ${env:MONITOR:eDP-1}
 width = 100%
 height = 20
 dpi = 100
@@ -13,7 +13,7 @@ line-color = ${bar/bottom.background}
 line-size = 1
 
 padding-left = 0
-padding-right = 0
+padding-right = 5
 module-margin-left = 3
 module-margin-right = 3
 
@@ -35,8 +35,8 @@ font-3 = Siji:pixelsize=11;1
 font-4 = FontAwesome:size=11;0
 
 
-modules-left = mpd i3 
-modules-right = cpu memory temperature spotify volume backlight wireless-network consumation  battery date        
+modules-left = i3 
+modules-right = cpu memory temperature spotify volume backlight wireless-network  date battery consumation      
 
 wm-restack = i3
 
@@ -45,7 +45,7 @@ tray-scale = 1.0
 ;tray-transparent = true
 tray-background = ${self.background}
 tray-maxsize = 64
-
+tray-padding = 2
 tray-offset-y = 0
 
 scroll-up = i3wm-wsnext
@@ -57,8 +57,8 @@ underline-size = 2
 underline-color = ${self.background}
 
 [bar/bottom]
-monitor = ${env:MONITOR:DP-1}
-bottom = true
+monitor = ${env:MONITOR:DP-2}
+bottom = false
 width = 100%
 height = 20
 dpi = 100
@@ -85,12 +85,10 @@ font-3 = Siji:pixelsize=11;1
 font-4 = FontAwesome:size=11;0
 
 modules-left = i3 
-modules-right =   filesystem volume backlight   battery date
-
+modules-right =
 [module/backlight]
 type = internal/backlight
 format = <label>
-#format = <ramp> <bar>
 
 card =  intel_backlight
 
@@ -150,75 +148,6 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 750
 
-[module/bspwm]
-type = internal/bspwm
-
-ws-icon-0 = term;
-ws-icon-1 = web;
-ws-icon-2 = code;
-ws-icon-3 = music;
-ws-icon-4 = irssi;
-ws-icon-default = 
-
-format = <label-state> <label-mode>
-
-label-dimmed-underline = ${BAR.background}
-
-label-active = %icon%
-label-active-foreground = #fff
-label-active-background = #773f3f3f
-label-active-underline = #c9665e
-label-active-font = 4
-label-active-padding = 4
-
-label-occupied = %icon%
-label-occupied-foreground = #dd
-label-occupied-underline = #666
-label-occupied-font = 4
-label-occupied-padding = 4
-
-label-urgent = %icon%
-label-urgent-foreground = #000000
-label-urgent-background = #bd2c40
-label-urgent-underline = #9b0a20
-label-urgent-font = 4
-label-urgent-padding = 4
-
-label-empty = %icon%
-label-empty-foreground = #55
-label-empty-font = 4
-label-empty-padding = 4
-
-label-monocle = 
-label-monocle-underline = ${module/bspwm.label-active-underline}
-label-monocle-background = #33ffffff
-label-monocle-padding = 2
-
-label-locked = 
-label-locked-foreground = #bd2c40
-label-locked-underline = ${module/bspwm.label-monocle-underline}
-label-locked-padding = ${module/bspwm.label-monocle-padding}
-
-label-sticky = 
-label-sticky-foreground = #fba922
-label-sticky-underline = ${module/bspwm.label-monocle-underline}
-label-sticky-padding = ${module/bspwm.label-monocle-padding}
-
-label-private = 
-label-private-foreground = #bd2c40
-label-private-underline = ${module/bspwm.label-monocle-underline}
-label-private-padding = ${module/bspwm.label-monocle-padding}
-
-[module/bspwm-tmp]
-type = internal/bspwm
-format = <label-state>
-
-label-active = 
-label-active-padding = 1
-label-occupied = 
-label-occupied-padding = 1
-label-empty = 
-label-empty-padding = 1
 
 [module/cpu]
 type = internal/cpu
@@ -252,8 +181,9 @@ ramp-coreload-7-foreground = #ff5555
 
 [module/date]
 type = internal/date
-date =    %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M:%S%%{F-}
-date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+#date =    %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M:%S%%{F-}
+date = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+#format-underline = #1db954
 
 [module/memory]
 type = internal/memory
@@ -273,33 +203,6 @@ bar-used-fill-font = 6
 bar-used-empty = ─
 bar-used-empty-font = 6
 bar-used-empty-foreground = #444444
-
-[module/mpd]
-type = internal/mpd
-format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
-
-icon-play = 
-icon-pause = 
-icon-stop = 
-icon-prev = 
-icon-next = 
-icon-random = 
-icon-repeat = 
-
-toggle-on-foreground =
-toggle-off-foreground = #55
-
-bar-progress-width = 45
-bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
-bar-progress-indicator = |
-bar-progress-indicator-foreground = #ff
-bar-progress-indicator-font = 3
-bar-progress-fill = ─
-bar-progress-fill-foreground = #bb
-bar-progress-fill-font = 3
-bar-progress-empty = ─
-bar-progress-empty-font = 3
-bar-progress-empty-foreground = #44
 
 [module/wireless-network]
 type = internal/network
@@ -355,11 +258,12 @@ label-unmounted-foreground = #66
 [module/powermenu]
 type = custom/menu
 
-format-padding = 5
+format-padding = 0
 
-label-open = 
-label-close = 
+label-open =
+label-close = 
 label-separator = |
+
 
 menu-0-0 = Terminate WM
 menu-0-0-foreground = #fba922
@@ -418,20 +322,6 @@ type = internal/i3
 pin-workspaces = true
 strip-wsnumbers = true
 index-sort = true
-
-; Use fuzzy (partial) matching on labels when assigning 
-; icons to workspaces
-; Example: code;♚ will apply the icon to all workspaces 
-; containing 'code' in the label
-; Default: false
-fuzzy-match = true
-
-ws-icon-0 = 1;♚
-ws-icon-1 = 2;♛
-ws-icon-2 = 3;♜
-ws-icon-3 = 4;♝
-ws-icon-4 = 5;♞
-ws-icon-default = ♟
 
 label-dimmed-underline = ${root.background}
 
@@ -497,7 +387,7 @@ label-separator-foreground = #ffb52a
 [module/spotify]
 type = custom/script
 interval = 5
-format-prefix = "  "  
+#format-prefix =
 format = <label>
 exec = /home/sebu/.config/polybar/spotify.py
 

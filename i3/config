@@ -100,7 +100,7 @@ set $workspace5 "5"
 set $workspace6 "6"
 set $workspace7 "7"
 set $workspace8 "8"
-set $workspace8 "9"
+set $workspace9 "9"
 set $workspace10 "10:"
 
 # switch to workspace
@@ -227,7 +227,8 @@ bindsym $mod+ctrl+Right exec playerctl next
 bindsym $mod+ctrl+Left exec playerctl previous
 
 # Set Wallpaper
-exec_always feh --bg-scale /home/sebu/Pictures/Wallpapers/new_wallpaper.jpg
+#exec_always feh --bg-scale /home/sebu/Pictures/Wallpapers/batman-the-dark-knight-minimal-ac-1920x1080.jpg
+exec_always feh --bg-scale /home/sebu/git/wallpapers/Vibrant/dragonhead.jpg
 exec_always xrandr --output DP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --off --output DP-2 --mode 1920x1080 --pos 1920x0 --rotate normal
 
 #Make transparency possible
@@ -255,6 +256,9 @@ exec xinput --set-prop 10 276 1
 # Enable Natural Scrolling
 exec xinput --set-prop 10 284 1
 
+# Set pointer speed for mx 2
+exec xinput set-prop 13 296 -0.6
+
 # Run bluetooth
 #exec blueman-manager
 
@@ -270,3 +274,11 @@ exec_always fusuma
 exec_always redshift -l 60.4518:22.2666
 
 exec_always flameshot
+
+exec_always blueman-applet
+
+exec_always pasystray
+
+exec_always nm-applet
+
+exec_always /home/sebu/Downloads/cerebro-0.3.1-x86_64.AppImage

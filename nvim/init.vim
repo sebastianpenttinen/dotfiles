@@ -23,21 +23,8 @@ call plug#begin(g:plugged_home)
   Plug 'Chiel92/vim-autoformat'
 call plug#end()
 filetype plugin indent on
-" Configurations Part
-" UI configuration
 syntax on
 syntax enable
-" colorscheme
-let base16colorspace=256
-colorscheme base16-gruvbox-dark-hard
-set background=dark
-" True Color Support if it's avaiable in terminal
-if has("termguicolors")
-    set termguicolors
-endif
-if has("gui_running")
-  set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:blocks
-endif
 set number
 set relativenumber
 set hidden
